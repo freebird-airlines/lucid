@@ -25,8 +25,8 @@ class RespondWithJsonJob extends Job
     public function handle(ResponseFactory $factory)
     {
         $response = [
-            'data' => $this->content,
             'status' => $this->status,
+            'data' => $this->content,
         ];
 
         if (! empty($this->helperData)) {
