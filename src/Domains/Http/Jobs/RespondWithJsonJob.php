@@ -9,12 +9,14 @@ class RespondWithJsonJob extends Job
 {
     protected $status;
     protected $content;
+    protected $helperData;
     protected $headers;
     protected $options;
 
-    public function __construct($content, $status = 200, array $headers = [], $options = 0)
+    public function __construct($content, $helperData = [], $status = 200, array $headers = [], $options = 0)
     {
         $this->content = $content;
+        $this->helperData = $helperData;
         $this->status = $status;
         $this->headers = $headers;
         $this->options = $options;
@@ -26,6 +28,11 @@ class RespondWithJsonJob extends Job
             'data' => $this->content,
             'status' => $this->status,
         ];
+
+        if (! empty($this->helperData)) {
+            array_push($response, $this->helperData);
+        }
+
 
         return $factory->json($response, $this->status, $this->headers, $this->options);
     }
