@@ -30,7 +30,7 @@ class RespondWithJsonJob extends Job
         ];
 
         if (! empty($this->helperData)) {
-            array_push($response, $this->helperData);
+            $response['helper_data'] = $this->helperData;
         }
 
 
