@@ -23,7 +23,7 @@ trait UnitDispatcher
      * When the $arguments is an instance of Request
      * it will call dispatchFrom instead.
      *
-     * @param string                         $unit
+     * @param mixed                         $unit
      * @param array|\Illuminate\Http\Request $arguments
      * @param array                          $extra
      *
